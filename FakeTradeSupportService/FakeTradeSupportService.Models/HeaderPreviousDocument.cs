@@ -1,0 +1,18 @@
+﻿using Newtonsoft.Json;
+
+namespace FakeTradeSupportService.Models
+{
+
+	public  class HeaderPreviousDocument
+	{
+		[JsonProperty("previous_document_class")]
+		public string previous_document_class { get; set; }
+
+		[JsonProperty("previous_document_type")]
+		public string previous_document_type { get; set; }
+
+		[JsonProperty("previous_document_ref")]
+		public string previous_document_ref { get; set; }
+	}
+
+}
