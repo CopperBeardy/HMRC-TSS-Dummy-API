@@ -2,12 +2,13 @@
 
 namespace FakeTradeSupportService.Models.SimplifiedFrontierDeclaration
 {
-	public class SimplifiedFrontierDeclarationLookupResponse
+	public class SFD_DetailRequest
 	{
-		[JsonProperty("consignment_number")]
-		public string consignment_number { get; set; }
-
 		[JsonProperty("sfd_number")]
 		public string sfd_number { get; set; }
+
+
+		[JsonProperty("fields")]
+		public string fields { get; set; }
 	}
 }

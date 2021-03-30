@@ -2,7 +2,7 @@
 
 namespace FakeTradeSupportService.Models.SimplifiedFrontierDeclaration
 {
-	public class SimplifiedFrontierDeclaration
+	public class SimplifiedFrontierDeclaration : StatusOf
 	{
 
 		[JsonProperty("sfd_number")]

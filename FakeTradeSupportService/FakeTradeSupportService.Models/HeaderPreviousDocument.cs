@@ -5,6 +5,9 @@ namespace FakeTradeSupportService.Models
 
 	public  class HeaderPreviousDocument
 	{
+		[JsonProperty("op_type")]
+		public string op_type { get; set; } = "create";
+
 		[JsonProperty("previous_document_class")]
 		public string previous_document_class { get; set; }
 
