@@ -1,5 +1,6 @@
 ﻿using FakeTradeSupportService.Models;
 using FakeTradeSupportService.Models.SimplifiedFrontierDeclaration;
+using FakeTradeSupportService.Models.SupplementaryDeclaration;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -38,7 +39,7 @@ namespace FakeTradeSupportService.Controllers
 		}
 
 		[HttpGet]
-		public IActionResult Read([FromHeader]SFD_DetailRequest sFD_DetailRequest)
+		public IActionResult Read([FromHeader] SFD_DetailRequest sFD_DetailRequest)
 		{
 			var fakeObjec = CreateFake(sFD_DetailRequest.sfd_number);
 			var result = new SimplifiedFrontierDeclaration() { sfd_number = sFD_DetailRequest.sfd_number };

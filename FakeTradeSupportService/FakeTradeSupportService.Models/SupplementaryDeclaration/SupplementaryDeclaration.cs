@@ -2,7 +2,7 @@
 
 namespace FakeTradeSupportService.Models.SupplementaryDeclaration
 {
-	public class SupplementaryDeclaration
+	public class SupplementaryDeclaration : StatusOf
 	{
 
 		[JsonProperty("supp_dec_number")]
