@@ -1,11 +1,8 @@
 ﻿using FakeTradeSupportService.Models;
 using FakeTradeSupportService.Models.Consignments;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using System.Threading.Tasks;
 
 namespace FakeTradeSupportService.Controllers
@@ -19,7 +16,7 @@ namespace FakeTradeSupportService.Controllers
 		{
 			if (consignmentRequest == null)
 				return BadRequest();
-			return Ok( await GetResponse(consignmentRequest));
+			return Ok(await GetResponse(consignmentRequest));
 		}
 		[HttpGet]
 		public IActionResult GetConsignmentDetails([FromHeader] ConsignmentDetailRequest consignmentDetailRequest)
@@ -27,7 +24,7 @@ namespace FakeTradeSupportService.Controllers
 			if (consignmentDetailRequest == null || String.IsNullOrEmpty(consignmentDetailRequest.fields))
 				return BadRequest();
 			var header = CreateFake(consignmentDetailRequest.consignment_number);
-			var result = new Consignment() {  consignment_number = consignmentDetailRequest.consignment_number };
+			var result = new Consignment() { consignment_number = consignmentDetailRequest.consignment_number };
 
 
 			foreach (var prop in typeof(Consignment).GetProperties())

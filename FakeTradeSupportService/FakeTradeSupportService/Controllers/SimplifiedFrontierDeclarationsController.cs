@@ -1,10 +1,7 @@
 ﻿using FakeTradeSupportService.Models;
 using FakeTradeSupportService.Models.SimplifiedFrontierDeclaration;
-using FakeTradeSupportService.Models.SupplementaryDeclaration;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -12,7 +9,7 @@ namespace FakeTradeSupportService.Controllers
 {
 	[Route("api/[controller]")]
 	[ApiController]
-	public class SimplifiedFrontierDeclarations : ControllerBase
+	public class SimplifiedFrontierDeclarationsController : ControllerBase
 	{
 		[HttpPost]
 		public async Task<IActionResult> SFDUpdate(SFDRequest sFDRequest)
@@ -45,7 +42,7 @@ namespace FakeTradeSupportService.Controllers
 			var result = new SimplifiedFrontierDeclaration() { sfd_number = sFD_DetailRequest.sfd_number };
 			foreach (var prop in typeof(SimplifiedFrontierDeclaration).GetProperties())
 			{
-				if(sFD_DetailRequest.fields.Split(',').Contains(prop.Name))
+				if (sFD_DetailRequest.fields.Split(',').Contains(prop.Name))
 				{
 					var value = prop.GetValue(fakeObjec);
 					prop.SetValue(result, value);

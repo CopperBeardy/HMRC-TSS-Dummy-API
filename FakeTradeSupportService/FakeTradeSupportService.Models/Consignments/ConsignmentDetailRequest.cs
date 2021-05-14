@@ -2,7 +2,7 @@
 
 namespace FakeTradeSupportService.Models.Consignments
 {
-	public class ConsignmentDetailRequest 
+	public class ConsignmentDetailRequest
 	{
 		[JsonProperty("consignment_number")]
 		public string consignment_number { get; set; }

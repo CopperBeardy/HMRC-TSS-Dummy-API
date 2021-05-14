@@ -1,10 +1,8 @@
 ﻿using FakeTradeSupportService.Models;
 using FakeTradeSupportService.Models.SimplifiedFrontierDeclaration;
 using FakeTradeSupportService.Models.SupplementaryDeclaration;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -43,7 +41,7 @@ namespace FakeTradeSupportService.Controllers
 		public IActionResult Read([FromHeader] SD_DetailRequest sD_DetailRequest)
 		{
 			var fakeObjec = CreateFake(sD_DetailRequest.supp_dec_number);
-			var result = new SDRequest() {supp_dec_number = sD_DetailRequest.supp_dec_number };
+			var result = new SDRequest() { supp_dec_number = sD_DetailRequest.supp_dec_number };
 			foreach (var prop in typeof(SDRequest).GetProperties())
 			{
 				if (sD_DetailRequest.fields.Split(',').Contains(prop.Name))
@@ -105,7 +103,7 @@ namespace FakeTradeSupportService.Controllers
 					previous_document_ref= "80085"
 				}
 			},
-			holder_of_authorisation= new HolderOfAuthorisation[]
+			holder_of_authorisation = new HolderOfAuthorisation[]
 			{
 				new HolderOfAuthorisation()
 				{
@@ -114,7 +112,7 @@ namespace FakeTradeSupportService.Controllers
 					auth_type_code= "SDE"
 				}
 			},
-			header_additions_deductions= new HeaderAdditionsDeduction[]
+			header_additions_deductions = new HeaderAdditionsDeduction[]
 			{
 				new HeaderAdditionsDeduction()
 				{

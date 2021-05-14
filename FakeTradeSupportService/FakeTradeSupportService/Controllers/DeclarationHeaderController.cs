@@ -3,7 +3,6 @@ using FakeTradeSupportService.Models.Header;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Linq;
-using System.Reflection;
 using System.Threading.Tasks;
 
 namespace FakeTradeSupportService.Controllers
@@ -13,7 +12,7 @@ namespace FakeTradeSupportService.Controllers
 	public class DeclarationHeaderController : ControllerBase
 	{
 		[HttpPost]
-		public async Task<IActionResult> Header([FromBody]HeaderRequest headerRequest)
+		public async Task<IActionResult> Header([FromBody] HeaderRequest headerRequest)
 		{
 			if (headerRequest == null)
 				return BadRequest();
@@ -21,7 +20,7 @@ namespace FakeTradeSupportService.Controllers
 		}
 
 		[HttpGet]
-		public IActionResult GetHeaderDetails([FromHeader]HeaderDetailsRequest headerDetailsRequest)
+		public IActionResult GetHeaderDetails([FromHeader] HeaderDetailsRequest headerDetailsRequest)
 		{
 			if (headerDetailsRequest == null || String.IsNullOrEmpty(headerDetailsRequest.fields))
 				return BadRequest();
@@ -31,7 +30,7 @@ namespace FakeTradeSupportService.Controllers
 
 			foreach (var prop in typeof(Header).GetProperties())
 			{
-				if(headerDetailsRequest.fields.Split(',').Contains(prop.Name))
+				if (headerDetailsRequest.fields.Split(',').Contains(prop.Name))
 				{
 					prop.SetValue(result, prop.GetValue(header));
 				}
@@ -46,15 +45,16 @@ namespace FakeTradeSupportService.Controllers
 		private async static Task<StandardResponse> GetResponse(HeaderRequest header)
 		{
 			await LongTaskSim.WaitFive();
-			var resp = new StandardResponse() { process_message = "Success" };
-			if (header.op_type == "create") {
+			var resp = new StandardResponse() { process_message = "SUCCESS" };
+			if (header.op_type == "create")
+			{
 				var random = new Random(1000);
 				var num = random.Next(9000);
 
 				resp.status = "inserted";
 				resp.reference = $"ENS00000000000{num}";
 			}
-			else if (header.op_type == "update" || header.op_type == "cancel" )
+			else if (header.op_type == "update" || header.op_type == "cancel")
 			{
 				resp.status = "updated";
 				resp.reference = header.declaration_number;

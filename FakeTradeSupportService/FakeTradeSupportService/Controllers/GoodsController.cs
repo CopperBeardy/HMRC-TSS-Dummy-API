@@ -1,11 +1,8 @@
 ﻿using FakeTradeSupportService.Models;
 using FakeTradeSupportService.Models.Goods;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using System.Threading.Tasks;
 
 namespace FakeTradeSupportService.Controllers
@@ -41,7 +38,7 @@ namespace FakeTradeSupportService.Controllers
 		}
 
 		[HttpGet("lookup")]
-		public IActionResult GetGoods([FromHeader]GoodsLookup goodsLookup)
+		public IActionResult GetGoods([FromHeader] GoodsLookup goodsLookup)
 		{
 			if (goodsLookup == null)
 				return BadRequest();
@@ -216,5 +213,5 @@ namespace FakeTradeSupportService.Controllers
 				}
 			}
 		};
-}
+	}
 }

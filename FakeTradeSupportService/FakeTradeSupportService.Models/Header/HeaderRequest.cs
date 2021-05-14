@@ -7,6 +7,6 @@ namespace FakeTradeSupportService.Models.Header
 		[JsonProperty("op_type")]
 		public string op_type { get; set; } = "cancel";
 
-	
+
 	}
 }

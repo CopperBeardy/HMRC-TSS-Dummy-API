@@ -2,7 +2,7 @@
 
 namespace FakeTradeSupportService.Models.Goods
 {
-	public class Goods: StatusOf
+	public class Goods : StatusOf
 	{
 		[JsonProperty("consignment_number")]
 		public string consignment_number { get; set; }

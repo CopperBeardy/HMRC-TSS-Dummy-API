@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 
 using System.Threading.Tasks;
 using System.Timers;
@@ -11,7 +9,7 @@ namespace FakeTradeSupportService
 	{
 		public async static Task<bool> WaitFive()
 		{
-			
+
 			var timer = new Timer(3000);
 			timer.Elapsed += OnTimedEvent;
 			timer.AutoReset = true;

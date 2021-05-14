@@ -2,7 +2,7 @@
 
 namespace FakeTradeSupportService.Models.Consignments
 {
-	public class Consignment :StatusOf
+	public class Consignment : StatusOf
 	{
 		[JsonProperty("declaration_number")]
 		public string declaration_number { get; set; }
